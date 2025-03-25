@@ -1,6 +1,7 @@
 
 import datetime
-from sqlalchemy import DateTime, String, column
+from sqlalchemy import DateTime, ForeignKey, String, column
+
 
 
 class CardTable:
@@ -10,9 +11,10 @@ class CardTable:
     name = column(String(12))
     description = column(String(12))
     date_insert = column(DateTime, default=datetime.now())
+    Table = column(String(28), ForeignKey("table.pk_Table"),nullable=False) 
 
     def __init__(self, id, name, description):
         self.id = id,
         self.name = name,
         self.description = description
-        
+
