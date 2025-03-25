@@ -11,7 +11,7 @@ class Table(Base):
     name = Column(String(26))
     description = Column(String(26))
     data_insert = Column(DateTime, default=datetime.now())
-    Menu_Card = Column(String(28), ForeignKey("produto.pk_produtos"), nullable=False)
+    menu_Card = Column(String(28), ForeignKey("side_menu_card.pk_CardMenu"), nullable=False)
 
     card_table = relationship("CardTable")
 
@@ -19,5 +19,8 @@ class Table(Base):
         self.id = id,
         self.name = name,
         self.description = description
+
+    def add_card_table(self, card_table: Card_Table):
+        self.card_table.append(card_table)
 
 

@@ -18,7 +18,7 @@ class SideMenuCard(Base):
 
     """
 
-    id = Column("pk_CardsMenu", String(28), primary_key=True)
+    id = Column("pk_CardMenu", String(28), primary_key=True)
     name = Column(String(12))
     description = Column(String(12))
     date_insert = Column(DateTime, default=datetime.now())
@@ -30,5 +30,9 @@ class SideMenuCard(Base):
         self.name = name,
         self.description = description
 
-    def add_table(self, table: Table):
+    def add_table(self, table:Table):
+        """
+            adiciona uma tabela ao card
+        """
+        self.tables.append(table)
  

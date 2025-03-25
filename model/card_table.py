@@ -11,7 +11,7 @@ class CardTable:
     name = column(String(12))
     description = column(String(12))
     date_insert = column(DateTime, default=datetime.now())
-    Table = column(String(28), ForeignKey("table.pk_Table"),nullable=False) 
+    table = column(String(28), ForeignKey("table.pk_Table"),nullable=False) 
 
     def __init__(self, id, name, description):
         self.id = id,
