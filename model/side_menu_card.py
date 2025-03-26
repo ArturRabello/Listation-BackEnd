@@ -3,9 +3,10 @@
 import datetime
 from sqlalchemy import DateTime, String, Column
 from sqlalchemy.orm import relationship
-from model import Base, Table
+from model import base, Modal
 
-class SideMenuCard(Base):
+
+class SideMenuCard(base):
     __tablename__ = 'side_menu_card'
 
     """
@@ -18,21 +19,22 @@ class SideMenuCard(Base):
 
     """
 
-    id = Column("pk_CardMenu", String(28), primary_key=True)
+    id = Column("pk_menu_card", String(28), primary_key=True)
     name = Column(String(12))
     description = Column(String(12))
     date_insert = Column(DateTime, default=datetime.now())
+    modals = relationship("Modal")
 
-    tables = relationship("Table")
 
     def __init__(self, id, name, description):
-        self.id = id,
-        self.name = name,
+        self.id = id
+        self.name = name
         self.description = description
 
-    def add_table(self, table:Table):
+
+    def add_modal(self, modal:Modal):
         """
             adiciona uma tabela ao card
         """
-        self.tables.append(table)
+        self.tables.append(modal)
  
