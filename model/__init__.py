@@ -5,10 +5,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy_utils import database_exists, create_database
 
-from model.base import Base
-
-
-
+from .base import Base
+from .side_menu_card import SideMenuCard
+from .modal import Modal
+from .modal_card import ModalCard
 
 db_path = "database/"
 

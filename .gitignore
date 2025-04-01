@@ -1,2 +1,5 @@
 venv/
 database/
+log/
+logger.py
+__pycache__/

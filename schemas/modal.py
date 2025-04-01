@@ -1,58 +1,46 @@
-from pydantic import BaseModel
-from typing import Optional, List
+from typing import List
+from pydantic import BaseModel, ConfigDict
 
 from model.modal import Modal
 
 class ModalSchema(BaseModel):
-
-    """  Define como um SideMenuCard será estruturado
-    """
-
-    id: str = "f3f3sf3221g44fg23"
+    model_config = ConfigDict(coerce_numbers_to_str=True)
+    id: str = "lflefs21321"
     name: str = "Bolos"
     description: str = "Receitas de bolos"
+    side_menu_card_id: str = "dawdk3123ad"
+
 
 class ModalSearchSchema(BaseModel):
-    id: str = "f3f3sf3221g44fg23"
+    id: str = "lflefs21321"
+
+class GetAllModalSchema(BaseModel):
+    side_menu_card_id: str = "dawdk3123ad"
+
+class ListingModalSchema(BaseModel):
+    ModalSchema: List[ModalSchema]
+
+def to_present_modals(modals: List[Modal]):
+    result = []
+    for modal in modals:
+        result.append({
+            "id": modal.id,
+            "name": modal.name,
+            "description": modal.description
+        })
+    return {"SideMenuCard": result}
 
 class ModalViewSchema(BaseModel):
-    name: str = "Bolos"
-    description: str = "Receitas de bolos"
+    id: str
+    name: str
+    description: str
+    
 
-class ModalDelSchema(BaseModel):
-    id: str = "f3f3sf3221g44fg23"
-
-class listingSideMenuCard(BaseModel):
-
-    sideMenuCards: List[SideMenuCardSchema]
-
-def to_present_sideMenuCard(sideMenuCards: List[SideMenuCard]):
-
-    result=[]
-    for card in sideMenuCards:
-        result.append({
-            "id": card.id,
-            "name": card.name,
-            "description": card.description
-        })
-
-    return {"sideMenuCard": result}
-
-
-class sideMenuCardViewSchema(BaseModel):
-
-    id: str = "1ksj22kdk234kalwl"
-    name: str = "Receitas"
-    description: str = "Receitas faceis"
-    total_modals: int = 1
-    modals: List[ModalSchema]
-
-
-def apresenta_sideMenuCard(sideMenuCard: SideMenuCard):
+def to_present_modal(modal: Modal):
     return {
-        "id": sideMenuCard.id,
-        "name": sideMenuCard.name,
-        "description": sideMenuCard.description
-        "total_modals": len(sideMenuCard.modal)
-        "modals": [{"texto": m.texto} for m in sideMenuCard.modals]
+        "id": modal.id,
+        "name": modal.name,
+        "description": modal.description,
+        "total_modalCard": len(modal.modal_card),
+        "modalCard": [{"id": modalCard.id, "name": modalCard.name} for modalCard in modal.modal_card]
     }
