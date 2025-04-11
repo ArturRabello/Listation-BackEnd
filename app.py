@@ -11,8 +11,8 @@ from model import Session, SideMenuCard, Modal, ModalCard
 from schemas import *
 from flask_cors import CORS
 
-Info = Info(title ="Listation - API", summary="É uma API responsavel por gerenciar os cards e modais ",
-             description="ferece as funções de criar, deletar e buscar cards no menu lateral e no modal, além de permitir editar as informações do card exibido no modal. ", version = "1.0.0")
+Info = Info(title ="Listation - API", summary="É uma API responsavel por gerenciar cards e modais ",
+             description="Oferece as funções de criar, deletar e buscar cards no menu lateral e no modal, além de permitir editar as informações do card exibido no modal. ", version = "1.0.0")
 
 app = OpenAPI(__name__, info=Info)
 CORS(app)
