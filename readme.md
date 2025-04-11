@@ -1,17 +1,20 @@
 # Listation API
 
+![GitHub Repo Size](https://img.shields.io/github/repo-size/ArturRabello/Listation-BackEnd?style=for-the-badge)
+
+![GitHub](https://img.shields.io/github/license/ArturRabello/Listation-BackEnd?style=for-the-badge)
+
+![GitHub last commit](https://img.shields.io/github/last-commit/ArturRabello/Listation-BackEnd?style=for-the-badge)
+
+![GitHub contributors](https://img.shields.io/github/contributors/ArturRabello/Listation-BackEnd?style=for-the-badge)
+
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white) ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white) ![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)
+
 O Listation API é um serviço de API restful, deselvolvido para se comunicar com o front-end da aplicação Listation.O Listation é uma aplicação projetada para auxiliar pessoas na organização de atividades, tarefas e ideias de forma simples e fácil.
 
 Ele realiza funções de CRUD (Create, Read, Update, Delete) em um banco de dados relacional.
 
-## Listation
-
-**Link do Front-End:**
-
-```bash
-https://github.com/ArturRabello/Listation-FrontEnd
-```
-
+**Link do Front-End:** [Listation](https://github.com/ArturRabello/Listation-FrontEnd)
 
 # Propósito
 
