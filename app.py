@@ -22,6 +22,7 @@ side_menu_card_tag = Tag(name="SideMenuCard", description="Oferece operação de
 modal_tag = Tag(name="modal", description="fornece operação de criação, remoção e adição de modalS")
 modal_card_tag = Tag(name="modal_card", description="fornece operação de criação, remoção e adição de modal_cards")
 
+@app.route('/')
 def home():
     return redirect('/openapi/swagger')
 
