@@ -26,9 +26,10 @@ def to_present_modals(modals: List[Modal]):
         result.append({
             "id": modal.id,
             "name": modal.name,
-            "description": modal.description
+            "description": modal.description,
+            "side_menu_card_id": modal.side_menu_card_id,
         })
-    return {"SideMenuCard": result}
+    return {"Modals": result}
 
 class ModalViewSchema(BaseModel):
     id: str
@@ -41,6 +42,6 @@ def to_present_modal(modal: Modal):
         "id": modal.id,
         "name": modal.name,
         "description": modal.description,
-        "total_modalCard": len(modal.modal_card),
-        "modalCard": [{"id": modalCard.id, "name": modalCard.name} for modalCard in modal.modal_card]
+        "total_modalCard": len(modal.modal_cards),
+        "modalCard": [{"id": modalCard.id, "name": modalCard.name} for modalCard in modal.modal_cards]
     }

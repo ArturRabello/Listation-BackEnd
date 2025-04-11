@@ -38,6 +38,6 @@ def to_present_sideMenuCard(sideMenuCard: SideMenuCard):
         "id": sideMenuCard.id,
         "name": sideMenuCard.name,
         "description": sideMenuCard.description,
-        "total_modal" : len(sideMenuCard.modal),
-        "modal": [{"id": modal.id, "name": modal.name} for modal in sideMenuCard.modal]
+        "total_modal" : len(sideMenuCard.modals),
+        "modal": [{"id": modal.id, "name": modal.name} for modal in sideMenuCard.modals]
     }

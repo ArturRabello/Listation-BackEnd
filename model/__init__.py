@@ -1,7 +1,7 @@
 
 import os
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, event
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy_utils import database_exists, create_database
 
@@ -18,6 +18,12 @@ if not os.path.exists(db_path):
 db_url = 'sqlite:///%s/db.sqlite3' % db_path
 
 engine = create_engine(db_url, echo=False)
+
+@event.listens_for(engine, "connect")
+def set_sqlite_pragma(dbapi_connection, connection_record):
+    cursor = dbapi_connection.cursor()
+    cursor.execute("PRAGMA foreign_keys=ON")
+    cursor.close()
 
 Session = sessionmaker(bind=engine)
 

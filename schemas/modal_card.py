@@ -26,18 +26,18 @@ class ModalCardViewSchema(BaseModel):
 class ListingModalCardSchema(BaseModel):
     modalCards: List[ModalCardSchema]
 
-def to_present_modalCards(modalCard: List[ModalCard]):
+def to_present_modalCards(modalCards: List[ModalCard]):
 
-    
     result=[]
-    for modalCards in modalCard:
+    for modalCard in modalCards:
         result.append({
-            "id": modalCards.id,
-            "name": modalCards.name,
-            "description": modalCards.description
+            "id": modalCard.id,
+            "name": modalCard.name,
+            "description": modalCard.description,
+            "modal_id": modalCard.modal_id
         })
 
-    return {"ModalCard": result}
+    return {"modalCards": result}
 
 
 class ModalCardViewSchema(BaseModel):
