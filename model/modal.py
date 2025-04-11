@@ -14,7 +14,7 @@ class Modal(Base):
 
     id = Column("pk_modal", String(28), primary_key=True)
     name = Column(String(25))
-    description = Column(String)
+    description = Column(String(27))
     data_insercao = Column(DateTime, default=datetime.now())
     side_menu_card_id = Column(String, ForeignKey('sideMenuCard.pk_side_menu_card', ondelete='CASCADE'))
     modal_cards = relationship('ModalCard', backref=backref('modalCard', passive_deletes=True))
